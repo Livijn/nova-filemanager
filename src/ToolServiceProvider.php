@@ -39,12 +39,6 @@ class ToolServiceProvider extends ServiceProvider
             Nova::translations(__DIR__.'/../lang/en.json');
         });
 
-        if (! $this->app->runningInConsole()) {
-            Inertia::version(static function () {
-                return md5_file(__DIR__ . '../dist/mix-manifest.json');
-            });
-        }
-
         $this->publish();
     }
 
